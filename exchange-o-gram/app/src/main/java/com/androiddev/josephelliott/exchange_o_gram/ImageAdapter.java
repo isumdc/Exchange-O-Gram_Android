@@ -46,7 +46,8 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         // get the image we want and set it to the imageView with imageView.setImageResource(pictures[position]
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://exchangeogram.web.ianmcdowell.net/api/posts").build();
+        String url = this.mContext.getString(R.string.api_url);
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(url).build();
         GitHubService service = retrofit.create(GitHubService.class);
 
         //imageView.setImageResource(mThumbIds[position]);
