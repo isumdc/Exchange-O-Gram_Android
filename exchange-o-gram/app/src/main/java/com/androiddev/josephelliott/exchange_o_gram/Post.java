@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by Joseph Elliott on 1/12/2016.
  */
 public class Post {
-    private String url, caption, author;
+    private String id, url, caption, author;
     private Date date;
 
     public Post() {
@@ -15,12 +15,16 @@ public class Post {
         author = "";
         date = null;
     }
-    public Post(String u, String c, String a, Date d) {
+    public Post(String id, String u, String c, String a, Date d) {
         this.url = u;
         this.caption = c;
         this.author = a;
         this.date = d;
     }
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getUrl() {
         return url;
