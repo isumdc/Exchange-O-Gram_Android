@@ -34,7 +34,9 @@ public class PostAdapter extends BaseAdapter {
         return postList.get(position);
     }
 
-    public long getItemId(int position) { return getItem(position).getIdAsLong(); }
+    public long getItemId(int position) {
+        return (long)position;
+    }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {

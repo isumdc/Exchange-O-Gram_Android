@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pos
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
+                Post post = postAdapter.getItem(position);
+                Toast.makeText(MainActivity.this, "Author: " + post.getAuthor(),
                         Toast.LENGTH_SHORT).show();
+
             }
         });
     }

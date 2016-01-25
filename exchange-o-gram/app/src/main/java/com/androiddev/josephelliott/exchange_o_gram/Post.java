@@ -25,7 +25,7 @@ public class Post {
     }
 
     public String getId() { return id; }
-    public long getIdAsLong() { return Long.parseLong(id);}
+    //public long getIdAsLong() { return Long.parseLong(id);}
 
     public void setId(String id) { this.id = id; }
 
