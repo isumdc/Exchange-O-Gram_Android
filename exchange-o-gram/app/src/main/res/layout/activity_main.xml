@@ -18,5 +18,8 @@
         android:id="@+id/fab_take_select_pic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"/> <!--This is temporary until it's actually aligned and implemented -->
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:onClick="goToCameraActivity"/>
 </RelativeLayout>

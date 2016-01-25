@@ -11,7 +11,17 @@ public class CameraActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_camera);
+
+        // Camera2 api is garbage and infinitely more confusing than necessary.
+
+        //CameraManager -> Select Camera -> Create CameraDevice
+
+        //CameraDevice -> Create CaptureRequest -> Create CameraCaptureSession
+
+        //CaptureRequest, CaptureRequest.CameraBuilder -> Link Surface for Viewing -> Make CaptureRequest
+
+        //CameraCaptureSession -> Capture Camare Image and put the result on the Surface registered in CaptureRequest.
 
     }
 

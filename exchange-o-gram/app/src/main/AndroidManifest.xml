@@ -3,6 +3,7 @@
     package="com.androiddev.josephelliott.exchange_o_gram">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CameraActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

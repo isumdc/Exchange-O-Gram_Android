@@ -1,5 +1,6 @@
 package com.androiddev.josephelliott.exchange_o_gram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pos
         Call<List<Post>> call = exchangeOGramAPI.loadPosts();
         //asynchronous call
         call.enqueue(this);
+    }
+
+    public void goToCameraActivity(View v) {
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
     }
 
     @Override
