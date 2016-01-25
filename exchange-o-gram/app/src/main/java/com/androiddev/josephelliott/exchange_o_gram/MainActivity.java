@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,31 +24,26 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity implements Callback<List<Post>> {
 
     private GridView gridView;
-    private PostAdapter imageAdapter;
+    private PostAdapter postAdapter;
+
+    private List<Post> posts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageAdapter = new PostAdapter(this);
+        posts = new ArrayList<>();
+        postAdapter = new PostAdapter(this, posts);
 
         gridView = (GridView) findViewById(R.id.gridview);
-        gridView.setAdapter(imageAdapter);
+        gridView.setAdapter(postAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button upload = (Button) findViewById(R.id.upload);
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
     }
@@ -110,8 +106,12 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pos
     @Override
     public void onResponse(Response<List<Post>> response) {
         setProgressBarIndeterminateVisibility(false);
-        imageAdapter.notifyDataSetChanged();
-        gridView.invalidateViews();
+        posts = response.body();
+        postAdapter.setNewPosts(posts);
+        //postAdapter = new PostAdapter(this, posts);
+        //gridView.setAdapter(postAdapter);
+        //postAdapter.notifyDataSetChanged();
+        //gridView.invalidateViews();
     }
 
     @Override

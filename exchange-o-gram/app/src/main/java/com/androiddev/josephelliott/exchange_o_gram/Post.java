@@ -6,6 +6,8 @@ import java.util.Date;
  * Created by Joseph Elliott on 1/12/2016.
  */
 public class Post {
+    private static final String API_URL = "http://exchangeogram.web.ianmcdowell.net/";
+
     private String id, url, caption, author;
     private Date date;
 
@@ -23,6 +25,7 @@ public class Post {
     }
 
     public String getId() { return id; }
+    public long getIdAsLong() { return Long.parseLong(id);}
 
     public void setId(String id) { this.id = id; }
 
@@ -32,6 +35,10 @@ public class Post {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getFullImageUrl() {
+        return API_URL.concat(url);
     }
 
     public String getCaption() {
