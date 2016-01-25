@@ -12,10 +12,10 @@ import retrofit2.Retrofit;
 /**
  * Created by Joseph Elliott on 1/12/2016.
  */
-public class ImageAdapter extends BaseAdapter {
+public class PostAdapter extends BaseAdapter {
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public PostAdapter(Context c) {
         mContext = c;
     }
 
@@ -44,11 +44,6 @@ public class ImageAdapter extends BaseAdapter {
         } else {
             imageView = (ImageView) convertView;
         }
-
-        // get the image we want and set it to the imageView with imageView.setImageResource(pictures[position]
-        String url = this.mContext.getString(R.string.api_url);
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url).build();
-        GitHubService service = retrofit.create(GitHubService.class);
 
         //imageView.setImageResource(mThumbIds[position]);
         return imageView;
