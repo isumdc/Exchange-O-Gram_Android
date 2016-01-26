@@ -1,6 +1,7 @@
 package com.androiddev.josephelliott.exchange_o_gram;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -27,7 +28,7 @@ public class CameraActivity extends Activity {
     }
 
     public void takePictureIntent(View v) {
-
+        Intent intent = new Intent();
     }
 
 }
