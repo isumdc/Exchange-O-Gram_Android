@@ -7,13 +7,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btn_take_photo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Take Picture"
-        android:onClick="takePictureIntent"/>
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+        <EditText
+            android:layout_weight="2"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:hint="Author"/>
+        <EditText
+            android:layout_weight="8"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:hint="Caption"/>
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:onClick="uploadImage"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/ll_bottom"
+        android:layout_margin="16dp"
+        android:text="Camera"
+        android:onClick="fromCamera"/>
+
+    <Button
+        android:id="@+id/btn_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:layout_margin="16dp"
+        android:text="Gallery"
+        android:onClick="fromGallery"/>
 
 </RelativeLayout>
