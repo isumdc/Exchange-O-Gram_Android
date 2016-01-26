@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Take Picture"/>
+        android:text="Take Picture"
+        android:onClick="takePictureIntent"/>
 
 </RelativeLayout>
