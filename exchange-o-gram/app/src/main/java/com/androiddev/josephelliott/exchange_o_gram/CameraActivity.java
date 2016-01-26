@@ -2,11 +2,13 @@ package com.androiddev.josephelliott.exchange_o_gram;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by Joseph Elliott on 1/24/2016.
@@ -28,6 +30,7 @@ public class CameraActivity extends Activity {
         dispatchTakePictureIntent();
     }
 
+    // TODO This crashes because of a security exception
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
