@@ -6,12 +6,15 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,6 +83,38 @@ public class CameraActivity extends Activity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             mImageView.setImageBitmap(photo);
         }
+    }
+
+    public void onFilterSelected(View view) {
+        boolean checked = ((RadioButton)view).isChecked();
+        if(!checked) {
+            removeFilters();
+            return;
+        }
+
+        switch(view.getId()) {
+            case R.id.radio_none:
+                removeFilters();
+                break;
+            case R.id.radio_grayscale:
+                grayScale();
+                break;
+            default:
+                removeFilters();
+
+        }
+    }
+
+    private void removeFilters() {
+        mImageView.clearColorFilter();
+    }
+
+    private void grayScale() {
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0);
+
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+        mImageView.setColorFilter(filter);
     }
 
 }

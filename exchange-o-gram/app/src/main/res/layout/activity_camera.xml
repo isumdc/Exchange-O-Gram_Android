@@ -36,12 +36,36 @@
             android:onClick="uploadImage"/>
     </LinearLayout>
 
+    <RadioGroup
+        android:id="@+id/radioGroup_filters"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None"
+            android:onClick="onFilterSelected"/>
+
+        <RadioButton
+            android:id="@+id/radio_grayscale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grayscale"
+            android:onClick="onFilterSelected"/>
+
+
+    </RadioGroup>
+
     <Button
         android:id="@+id/btn_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_above="@id/ll_bottom"
+        android:layout_above="@id/radioGroup_filters"
         android:layout_margin="16dp"
         android:text="Camera"
         android:onClick="fromCamera"/>
@@ -50,7 +74,7 @@
         android:id="@+id/btn_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ll_bottom"
+        android:layout_above="@id/radioGroup_filters"
         android:layout_margin="16dp"
         android:text="Gallery"
         android:onClick="fromGallery"/>
